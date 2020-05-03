@@ -9,6 +9,12 @@
 <div class="jumbotron text-center">
   <div class="container">
     <h1><%= title %></h1>
+    <form method="POST" action="/ta02/addUser">
+    <input type="text" name="user_name" id="uname">
+  <button type="submit">Submit</button>
+</form>
+
+<% for (user of users) %> //finish
     <p>This is the placeholder for Team Activity 02</p>
   </div>
 </div>

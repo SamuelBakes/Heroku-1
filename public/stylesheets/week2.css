@@ -1,0 +1,23 @@
+body {
+    background: #0065BD;
+    color: white;
+    padding-bottom: 80px; 
+  }
+input {
+    color: black;
+    padding: 0px;
+}
+.description {
+    height: 50px;
+    width: 80%;
+    margin: 10px;
+}
+button {
+    color: #0065BD;
+    border: black;
+    border-radius: 25%;
+    border-width: 3px;
+}
+textarea {
+    color: black;
+}
