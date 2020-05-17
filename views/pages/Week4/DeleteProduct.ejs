@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% include ../../includes/header.ejs %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/week2.css" />
+    <title><%= title %></title>
+</head>
+<body>
+    <% include ../../includes/nav.ejs %>
+    <h1>Admin Delete</h1>
+    <a href = "/week4/home">Home</a>
+    <a href = "/week4/admin">Admin Access</a>
+    <a href = "/week4/add">Add Product</a>
+    <form action="/week4/confirmDelete" method="POST">
+        Title: <input type="text" name="productName"><br>
+        ID: <input type="text" name="id"><br>
+    <button type="submit">Submit</button></form>
+  
+</body>
+</html>
+
