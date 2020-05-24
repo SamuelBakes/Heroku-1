@@ -22,22 +22,7 @@ save() {
         });
     });
 }
-static delete(prod) {
-    const p = path.join(path.dirname(process.mainModule.filename), 'Docs', 'products.json');
-    fs.readFile(p, (err, fileContent) =>{
-        let products = [];
-        if (!err) {
-            products = JSON.parse(fileContent);
-        }
-        console.log(prod);
-        products.splice((prod ),1);
-        console.log("above");
-        console.log(products);
-        fs.writeFile(p, JSON.stringify(products), (err) =>{
-            console.log(err);
-        });
-    });
-}
+
 static fetchAll(cb){
     const p = path.join(path.dirname(process.mainModule.filename), 'Docs', 'products.json');
 fs.readFile(p, (err, fileContent) => {

@@ -55,30 +55,14 @@ exports.confirmDeleteProductPage = (req,res,next) => {
         });
     });
 }
-//
-exports.getProducts = (req, res, next) => {
-    Product.fetchAll((products) =>{
-        res.render('pages/Week3/disp.ejs', { 
-            title: 'Home', 
-            prods: products,
-            hasProds: products.length > 0,
-            path: '/week3', // For pug, EJS 
-            activeTA03: true, // For HBS
-            contentCSS: true, // For HBS
-    });  
-});
-}
-//
 exports.deleteProd = (req,res,next) => {
-    let index;
     Product.fetchAll((products) => {
         products.filter((product) => {
             if ((req.body.productName == product.title) && (req.body.id == product.id)){
-                index = products.indexOf(product);
-                console.log(index);
-                Product.delete(index);
+                return true;
             }
         });
+        console.log(products);
         res.redirect('/week4');
     });
 }
