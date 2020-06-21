@@ -1,4 +1,4 @@
-const Product = require('../../../models/weeks/Week5/product/');
+const Product = require('../../../models/weeks/Week5/product');
 const Order = require('../../../models/weeks/Week5/order');
 
 exports.getProducts = (req, res, next) => {

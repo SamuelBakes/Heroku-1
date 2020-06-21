@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% include ../../includes/header.ejs %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/week2.css" />
+    <title><%= title%></title>
+</head>
+<body>
+    <% include ../../includes/nav.ejs %>
+    <h1><%= title%></h1>
+    <form action="/home/add" method="POST" enctype="multipart/form-data">
+        Name: <input type="text" name="name"><br>
+        Due Date: <input type="datetime" name="dueDate"><br>
+        Points: <input type="number" name="points">
+        PDF: <input type="file" name="PDF" accept="application/pdf"><br>
+        Description: <input type="text" name="description"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

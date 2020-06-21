@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const session = require('express-session');
-router.use(session({secret:'Walrus'}));
+//const session = require('express-session');
+//router.use(session({secret:'Walrus'}));
 var sess;
 router.get('/',(req, res, next) => {
     sess = req.session;
