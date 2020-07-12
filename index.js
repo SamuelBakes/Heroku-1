@@ -21,6 +21,7 @@ const cors = require('cors')
 const app = express();
 const mongoose = require('mongoose');
 const mongoConnect = require('./util/database').mongoConnect;
+const multer = require('multer');
 const corsOptions = {
   origin: "https://rocky-cliffs-12951.herokuapp.com/",
   optionsSuccessStatus: 200
@@ -49,8 +50,10 @@ const options = {
 //const week5RoutesAdmin = require('./routes/week5/admin')
 
 // The following Routes are specific to Project 2. The above will be commented out as necessary
-const homeRoutes = require('./routes/home')
+const homeRoutes = require('./routes/home');
+const assignmentsRoutes = require('./routes/assignment');
 app.use(express.static(path.join(__dirname, 'public')))
+app.use('/assignments', express.static(path.join(__dirname, 'assignments')))
    .set('views', path.join(__dirname, 'views'))
    .set('view engine', 'ejs')
    // For view engine as Pug
@@ -59,11 +62,10 @@ app.use(express.static(path.join(__dirname, 'public')))
    //.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) // For handlebars
    //.set('view engine', 'hbs')
 
-  // .use(formidablMiddleware({
-   //  multiples: true
-  // }))
-   //.use(bodyParser({extended: false})) // For parsing the body of a POST
-     
+  
+   .use(bodyParser({extended: false})) // For parsing the body of a POST
+   //.use(multer({dest: 'assignments'}).single('pdf')) 
+   
 
    //.use('/ta01', ta01Routes)
    //.use('/ta02', ta02Routes) 
@@ -78,7 +80,7 @@ app.use(express.static(path.join(__dirname, 'public')))
    //.use('/week5/admin', week5RoutesAdmin)
    
    .use('/home', homeRoutes)
-
+   .use('/assignments', assignmentsRoutes)
    .get('/', (req, res, next) => {
      // This is the primary index, always handled last. 
      res.render('pages/index', {title: 'Welcome to my CSE341 repo', path: '/'});
